@@ -1,4 +1,5 @@
 
+
 func ola(n):
     tentar:
         escrever('Olá mundo ' + str(n))
@@ -12,18 +13,18 @@ enquanto contador < 50:
     escrever(contador)
     se contador < 3:
         escrever('menor')
-    senão se contador < 10:
+    senao se contador < 10:
         escrever('medio')
-    senão:
+    senao:
         quebrar
     contador += 1
 
 para numero em range(3):
     ola(numero)
 
-x = Nada
-se x é Nada:
+x = Nulo
+se x mesmo que Nulo:
     x = Falso
-senão:
+senao:
     x = Verdadeiro
 escrever(x)
