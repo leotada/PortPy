@@ -31,5 +31,5 @@
 "with ": "com ",
 "print": ["escrever", "imprimir", "printar", "mostrar"],
 " and ": " e ",
-"input": "leia"
+"input": ["leia", "ler"]
 }
