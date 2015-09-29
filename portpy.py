@@ -1,4 +1,3 @@
-import codecs
 from sys import argv
 from json import dumps, load
 from os import path
@@ -23,7 +22,7 @@ class Serializable(object):
 class Data(Serializable):
 
 	def __init__(self):
-		Serializable.__init__(self)
+		super().__init__()
 		self.data = {}
 		
 	def __setitem__(self, key, value):
@@ -40,7 +39,7 @@ class Data(Serializable):
 		
 	def load(self, path):
 		# AHHHHHHHHHHHHHHHHHHH, foda-se essa merda de encoding (Por enquanto).
-		with codecs.open(path, "r", encoding="utf-8", errors="replace") as data: 
+		with open(path, "r") as data:
 			self.data = load(data)
 		
 		return self.data
@@ -48,7 +47,7 @@ class Data(Serializable):
 class Language(Data):
 	
 	def __init__(self, name):
-		Data.__init__(self)
+		super().__init__()
 		self.name = name
 		self.load(path.join(DEFAULT_LANGUAGE_PATH, self.name + ".txt"))
 
