@@ -30,5 +30,6 @@
 "while": "enquanto",
 "with ": "com ",
 "print": ["escrever", "imprimir", "printar", "mostrar"],
-" and ": " e "
+" and ": " e ",
+"leia": "input"
 }
