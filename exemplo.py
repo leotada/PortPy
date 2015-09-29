@@ -28,3 +28,6 @@ se x é Nulo:
 senão:
     x = Verdadeiro
 escrever(x)
+
+nome = leia('Digite seu nome: ')
+escrever(nome)
