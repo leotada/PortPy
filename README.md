@@ -18,7 +18,7 @@ $ portpy exemplo.py
 
 Opcionalmente, pode-se definir a lingua:
 ```
-$ portpy pt exemplo.py
+$ portpy -l pt exemplo.py
 ```
 
 Quando o executável é usado, não é necessário definir codec do arquivo (opção 2)
@@ -39,3 +39,4 @@ python exemplo.py
 
 Ao definir o codec no arquivo, é possível importá-lo normalmente em outros arquivos python.
 
+Nota: O codec foi feito com base no Interpy: https://github.com/syrusakbary/interpy

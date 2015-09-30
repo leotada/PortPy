@@ -1,11 +1,14 @@
 from __future__ import (absolute_import, print_function,
                         division, unicode_literals)
 
+import sys
 import json
 import os
 import tokenize
+import argparse
 from collections import OrderedDict
 from pkg_resources import resource_string
+from .cross_version import run
 
 
 DEFAULT_LANGUAGE_PATH = "lang"
@@ -31,28 +34,32 @@ class Language(object):
 
 
 def main():
-    from sys import argv
 
-    if len(argv) == 0:
-        raise Exception(("Please provide the name of the language file."
-                         "If the file is cz.txt, for example, than type "
-                         "'cz example.py'."))
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-l', '--language', nargs=1, default='pt')
+    parser.add_argument('script', nargs=argparse.REMAINDER)
 
-    args = argv[1:]
+    args = parser.parse_args()
 
-    lang_name = 'pt'
-    if len(args) > 1:
-        lang_name = args[0]
-        args = args[1:]
+    language = Language(''.join(args.language))
 
-    language = Language(lang_name)
+    path = os.path.realpath(args.script[0])
+    sys.path[0] = os.path.dirname(path)
+    sys.argv = args.script
 
-    script_path = args[0]
-    with open(script_path, 'rb') as _file:
+    import __main__
+    __main__.__dict__.clear()
+    __main__.__dict__.update({'__name__'    : '__main__',
+                              '__file__'    : path,
+                              '__builtins__': __builtins__,
+                             })
+
+    with open(path, 'rb') as _file:
         script = _file.read()
 
     script = language.translate(script)
-    exec(script)
+    run(script)
+
 
 if __name__ == "__main__":
     main()
