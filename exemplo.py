@@ -1,5 +1,4 @@
-
-
+# coding: portpy
 func ola(n):
     tentar:
         escrever('Olá mundo ' + str(n))
