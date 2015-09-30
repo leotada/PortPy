@@ -32,7 +32,7 @@ __version__ = "0.1.0"
 setup(
     cmdclass={'install': install},
     name="PortPy",
-    license="GPL3",
+    license="LGPL3",
     version=__version__,
     download_url='git@github.com:leotada/PortPy.git',
     packages = ["portpy", "portpy.codec"],
