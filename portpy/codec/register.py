@@ -6,11 +6,11 @@ from ..portpy import Language
 
 
 try:
-    # Python 2
-    from cStringIO import StringIO as BytesIO
-except ImportError:
     # Python 3
     from io import BytesIO
+except ImportError:
+    # Python 2
+    from cStringIO import StringIO as BytesIO
 
 
 def search_function(encoding):
