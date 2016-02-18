@@ -28,5 +28,5 @@ senão:
     x = Verdadeiro
 escrever(x)
 
-nome = leia('Digite seu nome: ')
+nome = ler('Digite seu nome: ')
 escrever(nome)
