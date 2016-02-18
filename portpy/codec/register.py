@@ -7,10 +7,10 @@ from ..portpy import Language
 
 try:
     # Python 2
-    from cStringIO import StringIO
+    from cStringIO import StringIO as BytesIO
 except ImportError:
     # Python 3
-    from io import StringIO
+    from io import BytesIO
 
 
 def search_function(encoding):
@@ -26,7 +26,7 @@ def search_function(encoding):
     def portpy_decode(input, errors='strict'):
         if isinstance(input, memoryview):
             input = input.tobytes()
-        input = StringIO(input).read()
+        input = BytesIO(input).read()
         return utf8.decode(lang.translate(input), errors)
 
     class PortpyIncrementalDecoder(utf_8.IncrementalDecoder):
